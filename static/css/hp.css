@@ -1,0 +1,21 @@
+body{
+    background-image: url("../img/background.jpg");
+    background-repeat:no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.jumbotron{
+    background-color: rgb(  135,206,250,0.6);
+}
+footer{
+    margin-top: 100px;
+    color: rgb(255, 255, 255, 0.8);
+    font-size: 21px;
+}
+.col-md-6{
+    font-size: 17px;
+    background-color: rgb(  135,206,250, 0.8);
+}

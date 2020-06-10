@@ -1,0 +1,15 @@
+circle {
+    fill-opacity: .25;
+    stroke-width: 1px;
+  }
+  
+  .leaf circle {
+    fill: #ff7f0e;
+    fill-opacity: 1;
+  }
+  
+  text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+  }
+  
