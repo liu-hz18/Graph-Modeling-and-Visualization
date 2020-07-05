@@ -101,7 +101,7 @@ function displayCentrality(i) {
             .transition()
             .duration(1500)
             .attr("r", function (circle) {
-                return circle.betCent*200+2;
+                return circle.betCent*100+2;
             });
     }
     else if (i == 2) {                //紧密中心度

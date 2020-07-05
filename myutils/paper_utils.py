@@ -3,22 +3,22 @@ from .utils import translate, read_csv_to_dict_list
 from .graph_utils import stat
 
 
-def load_paper():
-    info_dict_list = read_csv_to_dict_list('./data/论文/papers.csv', parse_paper_line)
-    mat, size = stat(info_dict_list, corr_of_2papers)
+def load_paper(name, max_number=500, trans=False):
+    info_dict_list = read_csv_to_dict_list('./data/论文/papers.csv', parse_paper_line, max_number, trans)
+    mat, size = stat(info_dict_list, corr_of_2papers, max_number=max_number, name=name)
     return mat, size, info_dict_list
 
 
-def parse_paper_line(line_dict):
+def parse_paper_line(line_dict, trans=False):
     a_dict = {
         'conference': line_dict['Conference'].strip(),
         'year': line_dict['Year'].strip(),
         'title': line_dict['Paper Title'].strip(),
-        'chinese': translate(line_dict['Paper Title'].strip()),
+        'chinese': translate(line_dict['Paper Title'].strip()) if trans else '暂无',
         'link': line_dict['Link'].strip(),
         'abstract': line_dict['Abstract'].strip().replace("\"", "'").replace("\n", "").replace("\r", ""),
         'author': line_dict['Author Names'].strip(),
-        'keywords': line_dict['Author Keywords'].strip().lower().split(','),
+        'keywords': line_dict['Author Keywords'].replace("\n", "").strip().lower().split(','),
     }
     return a_dict
 

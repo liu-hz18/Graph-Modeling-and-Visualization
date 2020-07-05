@@ -4,8 +4,7 @@ import demjson
 import difflib
 import csv
 import random
-
-max_number = 500
+from tqdm import tqdm
 
 
 def translate(word):
@@ -30,10 +29,10 @@ def translate(word):
         if response.status_code == 200:
             # 然后相应的结果
             result = demjson.decode(response.text)['translateResult'][0][0]['tgt']
-            print(result)
+            # print(result)
             return result
         else:
-            print("error!")
+            # print("error!")
             return "暂无"  # 相应失败就返回空
     except:
         return "暂无"
@@ -43,11 +42,11 @@ def corr_of_2string(str1, str2):
     return difflib.SequenceMatcher(None, str1, str2).quick_ratio()
 
 
-def read_csv_to_dict_list(csv_file, parseline):
+def read_csv_to_dict_list(csv_file, parseline, max_number=500, trans=False):
     print("[Python]: Reading csv file...")
     with open(csv_file, 'r', newline='', errors='ignore') as f:
         csvinfo = csv.DictReader(f)
-        info_dict_list = [parseline(dict(row)) for i, row in enumerate(csvinfo) if i < max_number]
+        info_dict_list = [parseline(dict(row), trans) for i, row in tqdm(enumerate(csvinfo), desc='[Python]') if i < max_number]
     info_dict_list = sorted(info_dict_list, key=lambda v: random.random())
     return info_dict_list
 

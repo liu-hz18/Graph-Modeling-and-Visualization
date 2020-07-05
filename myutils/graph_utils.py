@@ -2,58 +2,68 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
-import community  # pip install python-louvain
-from .utils import max_number
+import community
 
 
-def stat(info_dict_list, corr):
+def stat(info_dict_list, corr, name, max_number=500):
     print("[Python]: Buliding Graph...")
     movie_num = min(max_number, len(info_dict_list))
-    print('[Python]: node num: %d' % movie_num)
     Adj_mat = np.zeros((movie_num, movie_num))
     for i in range(movie_num):
         for j in range(i+1, movie_num):
             Adj_mat[i][j] = Adj_mat[j][i] =\
                 corr(info_dict_list[i], info_dict_list[j])
-    # display_mat(Adj_mat)
+    # display_mat(Adj_mat, name)
     return Adj_mat, movie_num
 
 
-def plot_degree(G):
+def plot_degree(G, name):
     degree = nx.degree_histogram(G)
-    print("[Python]: ", degree)
+    # print("[Python]: ", degree)
     x = np.arange(len(degree))
+    plt.figure()
     plt.bar(x, degree, color='r')
-    plt.show()
+    plt.xlabel('节点度数')
+    plt.ylabel('节点数量')
+    plt.savefig('pictures/' + name + "_degree.pdf", format="pdf")
 
 
-def plot_close(G):
+def plot_close(G, name):
     closeness_centrality = nx.closeness_centrality(G).values()
-    print("[Python]: ", closeness_centrality)
+    # print("[Python]: ", closeness_centrality)
     x = np.arange(len(closeness_centrality))
+    plt.figure()
     plt.bar(x, closeness_centrality, color='r')
-    plt.show()
+    plt.xlabel('节点编号')
+    plt.ylabel('紧密中心度')
+    plt.savefig('pictures/' + name + "_closeness.pdf", format="pdf")
 
 
-def plot_bet(G):
+def plot_bet(G, name):
     betweenness_centrality = nx.betweenness_centrality(G).values()
-    print("[Python]: ", betweenness_centrality)
+    # print("[Python]: ", betweenness_centrality)
     x = np.arange(len(betweenness_centrality))
+    plt.figure()
     plt.bar(x, betweenness_centrality, color='r')
-    plt.show()
+    plt.xlabel('节点编号')
+    plt.ylabel('介数中心度')
+    plt.savefig('pictures/' + name + "_betweeness.pdf", format="pdf")
 
 
-def display_graph(G):
-    print("[Python]: ", G.number_of_edges(), G.number_of_nodes())
+def display_graph(G, name):
+    # print("[Python]: ", G.number_of_edges(), G.number_of_nodes())
     part = community.best_partition(G)
-    mod = community.modularity(part, G)
     values = [part.get(node) for node in G.nodes()]
-    print("[Python]: ", part, mod)  # 0.70257
-    nx.draw_spring(G, cmap=plt.get_cmap('jet'), node_color=values, node_size=20, with_labels=False, edge_color='gray', alpha=0.5)
-    plt.show()
-    plot_degree(G)
-    plot_bet(G)
-    plot_close(G)
+    # mod = community.modularity(part, G)
+    # print("[Python]: ", part, mod)  # 0.70257
+    plt.figure()
+    nx.draw_spring(
+        G, cmap=plt.get_cmap('jet'), node_color=values, node_size=20,
+        with_labels=False, edge_color='gray', alpha=0.5)
+    plt.savefig('pictures/' + name + "_graph.pdf", format="pdf")
+    plot_degree(G, name)
+    plot_bet(G, name)
+    plot_close(G, name)
 
 
 def save_graph(G, file):
@@ -62,10 +72,10 @@ def save_graph(G, file):
         f.write(str(nodes) + ' ' + str(edges) + '\n')
         for edge in G.edges():
             f.write(str(edge[0]) + ' ' + str(edge[1]) + ' ' + \
-                str(int(G[edge[0]][edge[1]]['weight'])) + '\n')
+                    str(int(G[edge[0]][edge[1]]['weight'])) + '\n')
 
 
-def build_graph(mat, size):
+def build_graph(mat, name, max_number=500, stat=False):
     mat = mat[0:max_number, 0:max_number]
     G = nx.from_numpy_matrix(mat)
     # connect
@@ -75,11 +85,13 @@ def build_graph(mat, size):
     save_graph(G, 'graph.txt')
     mat = nx.to_numpy_matrix(G)
     part = community.best_partition(G)
-    # display_graph(G)
+    if stat:
+        display_graph(G, name)
     return G, mat, node_set, part
 
 
-def display_mat(Adj_mat):
-    print("[Python]: ", np.max(Adj_mat), np.min(Adj_mat), np.count_nonzero(Adj_mat))
+def display_mat(Adj_mat, name):
+    # print("[Python]: ", np.max(Adj_mat), np.min(Adj_mat), np.count_nonzero(Adj_mat))
+    plt.figure()
     plt.matshow(Adj_mat)
-    plt.show()
+    plt.savefig('pictures/' + name + "_adjmat.pdf", format="pdf")

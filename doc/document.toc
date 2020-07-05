@@ -1,0 +1,34 @@
+\contentsline {section}{\numberline {1}小组分工}{2}{section.1}%
+\contentsline {section}{\numberline {2}Environment and Requirements}{2}{section.2}%
+\contentsline {section}{\numberline {3}Usage}{2}{section.3}%
+\contentsline {section}{\numberline {4}File Structure}{3}{section.4}%
+\contentsline {paragraph}{说明:}{3}{section*.2}%
+\contentsline {section}{\numberline {5}功能展示与说明}{3}{section.5}%
+\contentsline {section}{\numberline {6}算法概述}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}最小生成树}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}任意两点最短路}{6}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}中心度算法}{6}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}紧密中心度}{6}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}介数中心度}{6}{subsubsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.4}社群发现算法}{6}{subsection.6.4}%
+\contentsline {section}{\numberline {7}电影数据集}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}建模方法}{8}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}相关统计数据}{8}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}算法实现与场景分析}{8}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}最短路径}{8}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}最小生成树}{9}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}介数中心度}{10}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.4}紧密中心度}{10}{subsubsection.7.3.4}%
+\contentsline {subsubsection}{\numberline {7.3.5}社区发现}{11}{subsubsection.7.3.5}%
+\contentsline {paragraph}{场景分析}{11}{section*.4}%
+\contentsline {section}{\numberline {8}论文数据集}{12}{section.8}%
+\contentsline {subsection}{\numberline {8.1}建模方法}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}相关统计数据}{12}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}算法实现与场景分析}{12}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}最短路径}{12}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}最小生成树}{13}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}介数中心度}{14}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.4}紧密中心度}{14}{subsubsection.8.3.4}%
+\contentsline {subsubsection}{\numberline {8.3.5}社区发现}{15}{subsubsection.8.3.5}%
+\contentsline {section}{\numberline {9}总结}{15}{section.9}%
+\contentsline {section}{\numberline {A}Python Networkx图聚类结果}{16}{appendix.A}%
