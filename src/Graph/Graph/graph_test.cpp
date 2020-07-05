@@ -28,13 +28,16 @@ int main(){
 	//G->randomGraph(m, /*weight_max =*/ 1);//生成随机图, 随机图并不具备鲜明的群体性特征，不适合作为输入样例，仅作为测试
 	//G->printEdge();
 	{
+		printf("[C++]: Nodes: %d, Edges: %d\n", G->n, G->e);
 		Timer timer;
+		printf("[C++]: Run Prim Algorithm...\n");
 		timer.start();
 		// Minimum Spanning Tree
 		printf("[C++]: minimum Spanning Tree: %d\n", G->primHeap(/*root =*/ 1-1));
 		timer.pause();
 		G->printEdge(); //edges.js
 		// min Path and Between Centrality
+		printf("[C++]: Run Floyd Algorithm...\n");
 		timer.start();
 		G->floyd(/*print =*/ false);//同时获得betCent
 		timer.pause();
@@ -44,6 +47,7 @@ int main(){
 		G->getCloseCet(/*hasNegEdge =*/ false);//获得closeCet
 		timer.pause();
 		// communityDetecting
+		printf("[C++]: Run Fast Unfolding Algorithm...\n");
 		timer.start();
 		G->communityDetecting(/*iter=*/200, /*thread_num=*/12);
 		timer.pause();

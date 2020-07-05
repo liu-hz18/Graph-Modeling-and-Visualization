@@ -21,7 +21,6 @@
 //有向图类
 class Graph{
 private:
-	int n, e;//顶点数和边数
 	Vertex* vertex;//顶点列表
 	list<Edge>* edgeList;//邻接表
 	stack<int>** pathlist;//最短路径的二维矩阵套链表
@@ -43,6 +42,7 @@ private:
 	unionSet* fastUnfolding(double& modu, unsigned seed);//社群发现fastUnfolding算法
 
 public:
+	int n, e;//顶点数和边数
 	//输入顶点个数 和 是否是有向图
 	Graph(int _n, bool directed = true):n(_n), e(0), vertex(new Vertex[_n+1]), edgeList(new list<Edge>[_n+1]), isDirected(directed){
 		pathlist = new stack<int>*[n];

@@ -1,0 +1,19 @@
+﻿  graph_test.cpp
+d:\大二下\离散数学（2）\大作业\up\src\graph\graph\graph_test.cpp(20): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          e:\vs 2012\vc\include\stdio.h(290) : 参见“scanf”的声明
+d:\大二下\离散数学（2）\大作业\up\src\graph\graph\graph_test.cpp(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          e:\vs 2012\vc\include\stdio.h(290) : 参见“scanf”的声明
+  graph_random.cpp
+  graph_printpath.cpp
+  graph_prim.cpp
+  graph_kruskal.cpp
+  graph_imple.cpp
+  graph_floyd.cpp
+  graph_fastunfold.cpp
+  graph_dijkstra.cpp
+  graph_closeCet.cpp
+  graph_betCet.cpp
+d:\大二下\离散数学（2）\大作业\up\src\graph\graph\graph_betcet.cpp(53): warning C4018: “<”: 有符号/无符号不匹配
+  graph_bellmanford.cpp
+  正在生成代码...
+  Graph.vcxproj -> D:\大二下\离散数学（2）\大作业\up\src\Graph\Debug\Graph.exe
